@@ -1,0 +1,20 @@
+const addRecipe = createAction(
+ADD_RECIPE,
+ (title, description ) => (...args),
+ { silent: true }
+ );
+
+ const addRecipeAsync = (title, description = '') => {
+ const details = { ...args };
+
+ return (dispatch) => {
+ fetch('/recipes', {
+ method: 'post',
+ body: JSON.stringify(details)
+ })
+ .then(
+ response => dispatch(addRecipe(details)),
+ error => dispatch(addRecipe(new Error(error)))
+ );
+ }
+ };
